@@ -50,10 +50,8 @@ else if(currTotal>=critLevel){
     
 }
 function clicked(){
-
- var radioSmsCall = document.querySelector("input[name='billItemTypeWithSettings']:checked");
-
-  var item = radioSmsCall.value;  
+  radioBillFact.totalCalls ();
+  radioBillFact.ue;  
 
   tCostOfBill(item);    
 callCostElem.innerHTML =callCostTotal.toFixed(2);
@@ -73,3 +71,5 @@ function update(){
     }
 btnAdd.addEventListener("click",clicked);
 btnUpd.addEventListener("click",update);
+
+

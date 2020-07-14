@@ -9,7 +9,7 @@ describe("The text input bill factory function", function(){
         let textBill = calculateTextBill();
         textBill.textBillTotal("sms");
 
-        asser.equal(0.75, textBill.getSmsTotal());
+        assert.equal(0.75, textBill.getSmsTotal());
     });
 
     it("should be able to make both sms and call and return the total", function (){
