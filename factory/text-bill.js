@@ -32,10 +32,10 @@ function calculateTextBill() {
       
     function styleColor() {
 
-        if (getTotal() >= 30) {
+        if (getTotal() >= 50) {
             return "danger"
         }
-        else if (getTotal() >= 20) {
+        else if (getTotal() >= 30) {
             return "warning"
         }
     }

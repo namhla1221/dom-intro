@@ -9,10 +9,14 @@ function buttonClicked() {
 
   var billTypeEntered = billTypeTextElem.value.trim();
   textBill.textBillTotal(billTypeEntered)
-  totalElem.innerHTML = textBill.getCallTotal();
+  
+  // do totals
+  callTotalElem.innerHTML = textBill.getCallTotal();
   smsTotalElem.innerHTML = textBill.getSmsTotal();
-  totalElem.classList.add(textBill.styleColor());
   totalElem.innerHTML = textBill.getTotal();
+  
+  //do colors
+  totalElem.classList.add(textBill.styleColor());
 
 }
 
