@@ -40,12 +40,6 @@ function rad() {
     function getTotalCost() {
         return callCostTotal + smsCostTotal;
     }
-    function getTotalCallCost() {
-        return callCostTotal;
-    }
-    function getTotalSmsCost() {
-        return smsCostTotal;
-    }
 
     function sendSms() {
         if (!hasReachedDangerLevel()) {
@@ -68,10 +62,10 @@ function rad() {
         return theDangerLevel;
     }
 
-    function hasReachedDangerLevel() {
-        return getTotalCost() >= getDangerLevel();
-    }
-
+        if(theOverallTotal() >= criticalLevel()) {
+            return "critical"
+        }
+        
     function totalClassName() {
         if (hasReachedDangerLevel()) {
             return "danger";

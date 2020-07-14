@@ -1,100 +1,52 @@
-function text() {
-    var theCallCost = 0;
-    var theSmsCost = 0;
-    var theWarningLevel = 0;
-    var theDangerLevel = 0;
-
-    var callCostTotal = 0;
-    var smsCostTotal = 0;
-
+function calculateTextBill() {
    
+    
 
-    function setCallCost(callCost) {
-        theCallCost = callCost;
-    }
+    var callsTotal = 0
+    var smsTotal = 0 
 
-    function getCallCost() {
-
-        return theCallCost;
-    }
-
-    function setSmsCost(smsCost) {
-        theSmsCost = smsCost;
-    }
-
-    function getSmsCost() {
-        return theSmsCost;
-    }
-
-    function getTotalCost() {
-        return callCostTotal + smsCostTotal;
-    }
-
-    function makeCall() {
-        if(!hasReachedDangerLevel()){
-            callCostTotal += theCallCost;
-        }
+    function textBillTotal(billTypeEntered) {
         
-    }
-
-    function getTotalCost() {
-        return callCostTotal + smsCostTotal;
-    }
-    function getTotalCallCost() {
-        return callCostTotal;
-    }
-    function getTotalSmsCost() {
-        return smsCostTotal;
-    }
-
-    function sendSms() {
-        if (!hasReachedDangerLevel()) {
-            smsCostTotal += theSmsCost;
+        if (billTypeEntered === "call"){
+            callsTotal += 2.75
+        }
+        else if (billTypeEntered === "sms"){
+            smsTotal += 0.75;
         }
     }
-    function setWarningLevel(warningLevel) {
-        theWarningLevel = warningLevel;
+
+    function getCallTotal() {
+         
+
+        return callsTotal;
+
+
     }
 
-    function getWarningLevel() {
-        return theWarningLevel;
+    function getSmsTotal() {
+        return smsTotal;
     }
+    function getTotal() {
+        return smsTotal + callsTotal;
+    }
+      
+    function styleColor() {
 
-    function setDangerLevel(dangerLevel) {
-        theDangerLevel = dangerLevel;
-    }
-    function getDangerLevel() {
-        return theDangerLevel;
-    }
-
-    function hasReachedDangerLevel() {
-        return getTotalCost() >= getDangerLevel();
-    }
-
-    function totalClassName() {
-        if (hasReachedDangerLevel()) {
-            return "danger";
+        if (getTotal() >= 30) {
+            return "danger"
         }
-        if (getTotalCost() >= getWarningLevel()) {
-            return "warning";
+        else if (getTotal() >= 20) {
+            return "warning"
         }
     }
-    return {
-       
-        setCallCost,
-        getCallCost,
-        setSmsCost,
-        getSmsCost,
-        getTotalCost,
-        makeCall,
-        getTotalCallCost,
-        sendSms,
-        getTotalSmsCost,
-        setWarningLevel,
-        getWarningLevel,
-        setDangerLevel,
-        getDangerLevel,
-        totalClassName
-    }
 
+        return {
+
+        textBillTotal,
+        getCallTotal,
+        getSmsTotal,
+        getTotal,
+        styleColor,
+    }
 }
+
