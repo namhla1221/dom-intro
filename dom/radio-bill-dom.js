@@ -1,58 +1,48 @@
-const billItemTypeRadio = document.querySelector(".billItemTypeRadio");
-const radioBillAddBtn = document.querySelector(".radioBillAddBtn");
-const callTotalTwo = document.querySelector(".callTotalTwo");
-const smsTotalTwo = document.querySelector(".smsTotalTwo");
-// put the dot inside the double qoutes 
-const totalTwo = document.querySelector(".totalTwo");
+var billItemTypeRadio = document.querySelector(".billItemTypeRadio");
 
-const radioBill = radioBillFact();
+var billRadioBtn = document.querySelector(".radioBillAddBtn");
 
-// have your Total here
-function radioBillTotal(radioBillFact){
+var callTotal2 = document.querySelector(".callTotalTwo");
 
-// var checkedBtn = document.querySelector("input[name='billItemType']:checked");
+var smsTotal2 = document.querySelector(".smsTotalTwo");
 
-var billItemInserted = checkedBtn.value;
+var total2 = document.querySelector(".totalTwo");
 
-radioBill.radioBillTotal(billItemInserted)
-
-//    if (billItemInserted === "call"){
-//        callTotal += 2.75;
-//      // update Total here. eg Total  += 2.75
-//       }
-//   // it's "else if" not "if else" 
-//       else if (billItemInserted === "sms") {
-//           smsTotal += 0.75;
-//         // same thing here 
-// }
-  // it's toFixed(2) 
-     callTotalTwo.innerHTML= radioBill.toFixed(2);
-     smsTotalTwo.innerHTML= radioBill.toFixed(2);
-  // make it a global variable 
-    // theTotal = callTotal + smsTotal;
-    totalTwo.innerHTML= radioBill.toFixed(2);
-    // radioBillTotalColor(theTotal);
-};
+var radioInstance = RadioBill();
 
 
-// function radioBillTotalColor(theTotal){
-//     // remove the dots - to ("danger")
+function radioBill() {
 
-//     totalTwo.classList.remove("danger");
+    var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
+  
+  
+    var billItemType = checkedRadioBtn.value;
+    
+    radioInstance.radioBtns(billItemType);
 
-//     totalTwo.classList.remove("warning");
+    callTotal2.innerHTML = radioInstance.getCallCost().toFixed(2)
 
-//     if (theTotal >= 50){
+    smsTotal2.innerHTML = radioInstance.getSmsCost().toFixed(2)
+
+    total2.innerHTML = radioInstance.getTotalCost().toFixed(2)
+    styleTotalColor();
+}
+
+function styleTotalColor() {
+ 
+    total2.classList.remove("danger")
+    total2.classList.remove("warning")
+
+    var currentStyle = radioInstance.styleTotalColor();
      
-//       totalTwo.classList.add("danger");
+    total2.classList.add(currentStyle);
+    // if (grandTotal >= 50) {
+    //     total2.classList.add("danger")
+    // } else if (grandTotal >= 30 && grandTotal <= 50) {
+    //     total2.classList.add("warning")
+    // }
+}
 
-// }
-//    else if (theTotal >= 30){
-     
-//      totalTwo.classList.add("warning");
-// }
-totalElem.classList.add(textBill.styleColor());
-// };
 
-radioBillAddBtn.addEventListener("click",radioBillTotal)
 
+billRadioBtn.addEventListener('click', radioBill);

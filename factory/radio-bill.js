@@ -1,57 +1,54 @@
-function radioBill() {
+function RadioBill() {
 
-    var callsTotal = 0;
-    var smsTotal = 0;
-    var total = 0;
+    var theCallCost = 0;
+    var theSmsCost = 0;
+    var theWarningLevel = 30;
+    var theCriticalLevel = 50;
 
-    function theBillTotal(billItemInserted) {
+    var totalCost = 0;
+    
 
-        if (billItemInserted === "call"){
-            callsTotal += 2.75;
-        }
-        else if (billItemInserted === "sms"){
-            smsTotal += 0.75;
-        }
+    function getCallCost() {
+        return theCallCost;
     }
 
-    function totalCalls(){
-        return callsTotal;
+   function radioBtns(billItemType){
+       if(billItemType === "call"){
+           theCallCost += 2.75
+       } else if(billItemType === "sms"){
+           theSmsCost += 0.75
+       }
+   }
+
+   function getTotalCost() {
+
+    totalCost = theCallCost + theSmsCost;
+
+    return totalCost;
+}
+
+    function getSmsCost() {
+        return theSmsCost;
     }
 
-    function totalSms(){
-        return smsTotal;
-    }
+    
 
-    function theOverallTotal(){
+    function styleTotalColor(){
 
-        return callsTotal + smsTotal
-    }
-
-    function criticalLevel(){
-        return 50;
-    }
-
-    function warningLevel(){
-        return 30;
-    }
-
-    function totalClassName(){
-
-        if(theOverallTotal() >= criticalLevel()) {
+        if(getTotalCost() >= theCriticalLevel){
             return "danger"
-        }
-        
-        if (theOverallTotal() >= warningLevel()) {
+        } else if(getTotalCost() >= theWarningLevel){
             return "warning"
         }
+        return "";
     }
-
+    
+    
     return {
-        theBillTotal,
-        totalCalls,
-        totalSms,
-        theOverallTotal,
-        totalClassName,
-       
+        getCallCost,
+        radioBtns,
+        getSmsCost,
+        getTotalCost,
+        styleTotalColor
     }
 }
