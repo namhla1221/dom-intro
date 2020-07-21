@@ -1,43 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
-
 <body>
-  <div id="mocha"></div>
-  <script>
-    mocha.setup('bdd');
-    var assert = chai.assert;
-  </script>
-
-  <script src="factory/settings-bill.js" charset="utf-8"></script>
-  <script src="tests/settingsTest-Bill.js" charset="utf-8"></script>
-
-  <script src="factory/calculate-bill.js" charset="utf-8"></script>
-  <script src="tests/calculateTest-Bill.js" charset="utf-8"></script>
-
-  <script src="factory/text-bill.js" charset="utf-8"></script>
-  <script src="tests/textTest-Bill.js" charset="utf-8"></script>
-
-  <script src="factory/radio-bill.js" charset="utf-8"></script>
-  <script src="tests/radioTest-bill.js" charset="utf-8"></script>
-
-  <script>
-    mocha.checkLeaks();
-    mocha.run();
-  </script>
+    <h1>My Widgets</h1>
+    <ul>
+        <li><a href="billWithSettings.html">Bill-With-Settings</Bill-With-Settings></a></li>
+        <li><a href="radioBill.html">Radio-Bill</Radio-Bill></a></li>
+        <li><a href="textBill.html">Text-Bill</Text-Bill></a></li>
+        <li><a href="calculateBill.html">Calculate-Bill</Calculate-Bill></a></li>
+    </ul>
 </body>
-
 </html>
