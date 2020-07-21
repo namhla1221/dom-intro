@@ -11,9 +11,9 @@ function buttonClicked() {
   textBill.textBillTotal(billTypeEntered)
   
   // do totals
-  callTotalElem.innerHTML = textBill.getCallTotal();
-  smsTotalElem.innerHTML = textBill.getSmsTotal();
-  totalElem.innerHTML = textBill.getTotal();
+  callTotalElem.innerHTML = textBill.getCallTotal().toFixed;
+  smsTotalElem.innerHTML = textBill.getSmsTotal().toFixed;
+  totalElem.innerHTML = textBill.getTotal().toFixed;
   
   //do colors
   totalElem.classList.add(textBill.styleColor());

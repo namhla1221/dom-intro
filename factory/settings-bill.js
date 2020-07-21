@@ -73,7 +73,18 @@ function BillWithSettings() {
             return "warning";
         }
     }
+    function calculate(item){
+        if (item === "call") {
+
+            makeCall()
+          }
+          if (item = "sms") {
+      
+            sendSms()
+          }
+    }
     return {
+        calculate,
         setCallCost,
         getCallCost,
         setSmsCost,
